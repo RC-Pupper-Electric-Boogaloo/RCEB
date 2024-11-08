@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import entities from './entities';
 import Physics from './physics';
 
@@ -20,11 +21,16 @@ export default function App() {
         systems={[Physics]}
         entities={entities()}
         running={running}
-        onEvent={(e) => {
+        onEvent={async(e) => {
           switch (e.type) {
             case 'game_over':
               setRunning(false)
               gameEngine.stop()
+              try {
+                await AsyncStorage.setItem('highScore', currentPoints.toString());
+              } catch (error) {
+                console.error("Error saving score", error);
+              }
               break;
             case 'new_point':
               setCurrentPoints(currentPoints + 1)
