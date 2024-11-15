@@ -31,7 +31,7 @@ export default function MainMenuScreen({ navigation }) {
         >
       <StatusBar style="auto" hidden={true} />
     </GameEngine>
-      <View style={styles.containerMainMenu}>
+    <View style={styles.containerMainMenu}>
         <TouchableOpacity style={styles.ButtonMainMenu} onPress={() => { navigation.navigate('Game') }}>
           <Text style={styles.ButtonMainMenuText}>PLAY</Text>
         </TouchableOpacity>
