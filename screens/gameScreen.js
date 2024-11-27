@@ -27,8 +27,7 @@ export default function GameScreen({ navigation }) {
     const [activeSkin, setActiveSkin] = useState(null)
     const [startTime, setStartTime] = useState(null)
     const [elapsedTime, setElapsedTime] = useState(0)
-    const [collectedBatteries, setCollectedBatteries] = useState(0)
-    const maxBatteries = 10
+
 
     const backgroundImage = isDarkMode
       ? require('../assets/Taustakuvatakatumma.jpg')
@@ -162,7 +161,6 @@ export default function GameScreen({ navigation }) {
         setCurrentPoints(0)
         setCoinCount(0)
         setRunning(true)
-        setCollectedBatteries(0)
 
         if (gameEngine.current) {
             gameEngine.current.swap(entities())
@@ -194,32 +192,6 @@ export default function GameScreen({ navigation }) {
                         Coins: {coinCount}
                     </Text>
 
-                    <View
-                        style={{
-                            position: 'absolute',
-                            top: 300,
-                            right: 10,
-                            width: 20,
-                            height: 200,
-                            backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                            borderRadius: 10,
-                            overflow: 'hidden'
-                        }}
-                    >
-                        {[...Array(maxBatteries)].map((_, index) => (
-                    <View
-                        key={index}
-                        style={{
-                            position: 'absolute',
-                            bottom: (index / maxBatteries) * 100 + '%',
-                            width: '100%',
-                            height: `${100 / maxBatteries}%`,
-                            backgroundColor: index < collectedBatteries ? 'green' : 'gray',
-                            opacity: index < collectedBatteries ? 1 : 0.3
-                        }}
-                    />
-                    ))}
-                    </View>
 
                     <GameEngine
                         ref={gameEngine}
@@ -248,9 +220,6 @@ export default function GameScreen({ navigation }) {
                                 case 'miss':
                                     if (sfxOn) playCollisionSound()
                                     setCurrentPoints(Math.max(currentPoints - 1, 0))
-                                    break
-                                case 'battery_collected':
-                                    setCollectedBatteries(prev => Math.min(prev + 1, maxBatteries))
                                     break
                             }
                         }}

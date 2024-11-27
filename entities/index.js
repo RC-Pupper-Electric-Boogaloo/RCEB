@@ -28,7 +28,6 @@ export default (restart, imageSource, skin) => {
         Char: Char(world, 'Char', 'red', { x: initialCharPositionX, y: initialCharPositionY }, { height: charSize, width: charSize }, skin),
         Obstacle: Obstacle(world, 'Obstacle', 'black', { x: 60, y: -50 }, { height: obstacleSize, width: obstacleSize }, require('../assets/Cat.png')),
         Choco: Obstacle(world, 'Choco', 'black', { x: 160, y: -150 }, { height: obstacleSize, width: obstacleSize }, require('../assets/Choco.png')),
-        Battery: Obstacle(world, 'Battery', 'blue', { x: 360, y: -5 * windowHeight }, { height: batterySize, width: batterySize }, require('../assets/Battery.png')),
         Point: Point(world, 'Point', 'orange', { x: 260, y: -50 }, { height: pointSize, width: pointSize }, require('../assets/Point.png')),
         Coin: Point(world, 'Coin', 'gold', { x: 260, y: -5 * windowHeight }, { height: coinSize, width: coinSize }, require('../assets/Coin.png'))
     }

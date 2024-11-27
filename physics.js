@@ -57,13 +57,7 @@ const Physics = (entities, { time, touches, dispatch }) => {
         })
     }
 
-    if (entities["Battery"] && entities["Battery"].body.bounds.min.y >= windowHeight) {
-        Matter.Body.setVelocity(entities["Battery"].body, { x: -0.5, y: 0 })
-        Matter.Body.setPosition(entities["Battery"].body, {
-            x: getRandom(10 + 110 / 2, windowWidth - 10 - 110 / 2),
-            y: getRandom(3, 6) * -windowHeight
-        })
-    }
+
 
     if (entities["Backdrop"] && entities["Backdrop"].body.bounds.max.y >= windowHeight + windowHeight) {
         Matter.Body.setPosition(entities["Backdrop"].body, {
@@ -132,16 +126,6 @@ const Physics = (entities, { time, touches, dispatch }) => {
                 } else if (bodyA.label === "Char" && bodyB.label === "Obstacle") {
 
                     dispatch({ type: "game_over" })
-                } else if (bodyA.label === "Char" && bodyB.label === "Battery") {
-
-                    batteryLevel = Math.min(batteryLevel + 20, 100)
-                    dispatch({ type: "battery_collected", level: batteryLevel })
-
-                    Matter.Body.setVelocity(entities["Battery"].body, { x: 0, y: 0 })
-                    Matter.Body.setPosition(bodyB, {
-                        x: getRandom(10 + 110 / 2, windowWidth - 10 - 110 / 2),
-                        y: getRandom(2, 4) * -windowHeight
-                    })
                 }
             })
         })

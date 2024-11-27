@@ -90,7 +90,7 @@ export default function MainMenuScreen({ navigation }) {
           <Text style={styles.ButtonMainMenuText}>STATS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.ButtonMainMenu} onPress={() => navigation.navigate('Achievement')}>
-          <Text style={styles.ButtonMainMenuText}>ACHIEVEMENTS</Text>
+          <Text style={styles.ButtonMainMenuText}>ACHIEVEMENT</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
