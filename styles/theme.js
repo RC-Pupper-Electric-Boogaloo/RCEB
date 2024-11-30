@@ -20,8 +20,7 @@ const DarkTheme = (isDarkMode) => {
       fontSize: 24,
       color: isDarkMode ? '#FFF' : '#000',
       fontWeight: 'bold',
-      marginBottom: 20,
-      marginTop: Constants.statusBarHeight
+      marginBottom: 5,
     },
     list: {
       width: '100%',
@@ -53,30 +52,32 @@ const DarkTheme = (isDarkMode) => {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
-    pointsText: {
-      textAlign: 'center',
-      color: isDarkMode ? '#FFF' : '#000',
-      fontSize: 40,
-      fontWeight: 'bold',
-      margin: 20,
-      zIndex: 100,
-      position: 'absolute',
-      right: 20,
-    },
-    coinsText: {
-      textAlign: 'center',
-      color: isDarkMode ? '#FFF' : '#000',
-      fontSize: 20,
-      fontWeight: 'bold',
-      position: 'absolute',
-      top: 60,
-      right: 20,
-    },
     text: {
       fontSize: 16,
       lineHeight: 22,
       color: isDarkMode ? '#FFFFFF' : '#000000',
     },
+
+        //GAMESCREEN
+        pointsText: {
+          textAlign: 'center',
+          color: isDarkMode ? '#FFF' : '#000',
+          fontSize: 40,
+          fontWeight: 'bold',
+          margin: 20,
+          zIndex: 100,
+          position: 'absolute',
+          right: 20,
+        },
+        coinsText: {
+          textAlign: 'center',
+          color: isDarkMode ? '#FFF' : '#000',
+          fontSize: 20,
+          fontWeight: 'bold',
+          position: 'absolute',
+          top: 60,
+          right: 20,
+        },
     //BUTTONIT
     button: {
       backgroundColor: '#3498db',
@@ -177,17 +178,6 @@ const DarkTheme = (isDarkMode) => {
     },
   
   //highscore
-  Hcontainer: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      padding: 10,
-      borderRadius: 10,
-      width: '90%',
-      paddingTop: 40, 
-      paddingBottom: 40, 
-  },
-
   Hitem: {
       flexDirection: 'row',
       justifyContent: 'space-between',
@@ -209,14 +199,6 @@ const DarkTheme = (isDarkMode) => {
   },
 
   // GameoverScreen
-
-  containerGameOver: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',  
-    padding: 20,
-    borderRadius: 10,
-},
 pointsTextGameOver: {
   fontSize: 30,
   color: 'white',
@@ -235,15 +217,6 @@ coinImage: {
 coinsTextGameOver: {
   fontSize: 25,
   color: 'white',
-},
-
-//STATSSCREEN
-containerStats: {
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  padding: 20,
-  borderRadius: 10,
 },
 
 //GUIDESCREEN
@@ -272,12 +245,6 @@ Guideimage: {
 },
 GuideCenter: {
   flex: 1,
-},
-sectionTitle: {
-  fontSize: 20,
-  fontWeight: "bold",
-  color: isDarkMode ? "#ffa500" : "#ff8c00",
-  marginBottom: 5,
 },
   };
 };

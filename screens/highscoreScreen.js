@@ -63,7 +63,7 @@ export default function HighscoreScreen({ navigation }) {
         >
           <StatusBar style="auto" hidden={true} />
         </GameEngine>
-            <View style={styles.Hcontainer}>
+            <View style={styles.Guidecontainer}>
                 <Text style={styles.title}>Highscores</Text>
                 <FlatList
                     data={highScores}

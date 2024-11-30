@@ -53,7 +53,7 @@ const GuideScreen = ({navigation}) => {
                     style={styles.Guideimage}
                 />
             <View style={styles.GuideCenter}>
-                <Text style={styles.sectionTitle}>Points</Text>
+                <Text style={styles.title}>Points</Text>
                 <Text style={styles.text}>
                 The bone is point
                 </Text>
@@ -66,7 +66,7 @@ const GuideScreen = ({navigation}) => {
                     style={styles.Guideimage}
                 />
             <View style={styles.GuideCenter}>
-                <Text style={styles.sectionTitle}>Coin</Text>
+                <Text style={styles.title}>Coin</Text>
                 <Text style={styles.text}>
                 Collect coins and use them in store
                 </Text>
@@ -79,7 +79,7 @@ const GuideScreen = ({navigation}) => {
                     style={styles.Guideimage}
                 />
             <View style={styles.GuideCenter}>
-                <Text style={styles.sectionTitle}>Choco</Text>
+                <Text style={styles.title}>Choco</Text>
                 <Text style={styles.text}>
                 Chocolate steals one point
                 </Text>
@@ -92,7 +92,7 @@ const GuideScreen = ({navigation}) => {
                     style={styles.Guideimage}
                     />
             <View style={styles.GuideCenter}>
-                <Text style={styles.sectionTitle}>Cat</Text>
+                <Text style={styles.title}>Cat</Text>
                 <Text style={styles.text}>
                 Cat ends the game if you hit it
                 </Text>

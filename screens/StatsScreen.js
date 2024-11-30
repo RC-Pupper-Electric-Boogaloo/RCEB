@@ -60,7 +60,7 @@ const StatsScreen = ({ navigation }) => {
             >
               <StatusBar style="auto" hidden={true} />
             </GameEngine>
-            <View style={styles.containerStats}>
+            <View style={styles.Guidecontainer}>
                 <Text style={styles.title}>All-Time Stats</Text>
                 <Text style={styles.text}>Total Points: {stats.totalPoints}</Text>
                 <Text style={styles.text}>Total Coins: {stats.totalCoins}</Text>
