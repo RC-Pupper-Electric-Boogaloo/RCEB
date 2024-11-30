@@ -161,7 +161,7 @@ const AchievementScreen = ({ navigation }) => {
     }
 
 return (
-    <ImageBackground source={backgroundImage} style={styles.Hbackground}>
+    <ImageBackground source={backgroundImage} style={styles.background}>
         <GameEngine
             ref={gameEngine}
             systems={[Physics]}
@@ -173,7 +173,7 @@ return (
         </GameEngine>
 
         <ScrollView contentContainerStyle={styles.Guidecontainer}>
-            <Text style={styles.Guidetitle}>Achievements</Text>
+            <Text style={styles.title}>Achievements</Text>
 
             {achievements.map((achievement) => (
                 <TouchableOpacity

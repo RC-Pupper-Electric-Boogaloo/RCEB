@@ -52,7 +52,7 @@ export default function HighscoreScreen({ navigation }) {
     return (
         <ImageBackground
             source={backgroundImage}
-            style={styles.Hbackground}
+            style={styles.background}
         >
         <GameEngine
           ref={gameEngine}
@@ -64,18 +64,18 @@ export default function HighscoreScreen({ navigation }) {
           <StatusBar style="auto" hidden={true} />
         </GameEngine>
             <View style={styles.Hcontainer}>
-                <Text style={styles.Htitle}>Highscores</Text>
+                <Text style={styles.title}>Highscores</Text>
                 <FlatList
                     data={highScores}
                     renderItem={renderItem}
                     keyExtractor={(item, index) => index.toString()}
-                    style={styles.Hlist}
+                    style={styles.list}
                 />
                 <TouchableOpacity
-                    style={styles.Hbutton}
+                    style={styles.returnButton}
                     onPress={() => navigation.goBack()}
                 >
-                    <Text style={styles.HbuttonText}>Return</Text>
+                    <Text style={styles.buttonTitle}>Return</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>

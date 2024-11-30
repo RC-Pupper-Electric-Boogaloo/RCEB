@@ -19,7 +19,7 @@ const GuideScreen = ({navigation}) => {
     return (
     <ImageBackground
         source={backgroundImage}
-        style={styles.Hbackground}
+        style={styles.background}
     >
     <GameEngine
       ref={gameEngine}
@@ -32,7 +32,7 @@ const GuideScreen = ({navigation}) => {
     </GameEngine>
 
         <ScrollView contentContainerStyle={styles.Guidecontainer}>
-            <Text style={styles.Guidetitle}>Guide</Text>
+            <Text style={styles.title}>Guide</Text>
 
             <View style={styles.Guidesection}>
                 <Image
@@ -40,8 +40,8 @@ const GuideScreen = ({navigation}) => {
                     style={styles.Guideimage}
                     />
             <View style={styles.GuideCenter}>
-                 <Text style={styles.sectionTitle}>Playing</Text>
-                 <Text style={styles.Guidetext}>
+                 <Text style={styles.title}>Playing</Text>
+                 <Text style={styles.text}>
                  Move puppy with your finger
                  </Text>
             </View>
@@ -54,7 +54,7 @@ const GuideScreen = ({navigation}) => {
                 />
             <View style={styles.GuideCenter}>
                 <Text style={styles.sectionTitle}>Points</Text>
-                <Text style={styles.Guidetext}>
+                <Text style={styles.text}>
                 The bone is point
                 </Text>
             </View>
@@ -67,7 +67,7 @@ const GuideScreen = ({navigation}) => {
                 />
             <View style={styles.GuideCenter}>
                 <Text style={styles.sectionTitle}>Coin</Text>
-                <Text style={styles.Guidetext}>
+                <Text style={styles.text}>
                 Collect coins and use them in store
                 </Text>
             </View>
@@ -80,7 +80,7 @@ const GuideScreen = ({navigation}) => {
                 />
             <View style={styles.GuideCenter}>
                 <Text style={styles.sectionTitle}>Choco</Text>
-                <Text style={styles.Guidetext}>
+                <Text style={styles.text}>
                 Chocolate steals one point
                 </Text>
             </View>
@@ -93,12 +93,12 @@ const GuideScreen = ({navigation}) => {
                     />
             <View style={styles.GuideCenter}>
                 <Text style={styles.sectionTitle}>Cat</Text>
-                <Text style={styles.Guidetext}>
+                <Text style={styles.text}>
                 Cat ends the game if you hit it
                 </Text>
             </View>
             </View>
-        <TouchableOpacity style={[styles.button, styles.GuidereturnButton]} onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={[styles.button, styles.returnButton]} onPress={() => navigation.goBack()}>
             <Text style={styles.buttonTitle}>Return</Text>
         </TouchableOpacity>
         </ScrollView>

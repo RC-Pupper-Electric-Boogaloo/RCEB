@@ -170,7 +170,7 @@ const ShopScreen = ({ navigation }) => {
                 style={[styles.skinBox, isSelected && styles.selectedSkinBox, isPurchased && styles.purchased]}
                 onPress={() => selectSkin(index)}
               >
-                <Image source={skin} style={[styles.skinImage, isPurchased && styles.purchasedSkin]} />
+                <Image source={skin} style={[styles.skinImage, isPurchased && styles.purchased]} />
               </TouchableOpacity>
               )
             })}
@@ -179,22 +179,22 @@ const ShopScreen = ({ navigation }) => {
           <View style={styles.optionsContainer}>
           {selectedSkin !== null && (
             <>
-              <Text style={styles.Label}>Name: {SkinNames[selectedSkin]}</Text>
+              <Text style={styles.shopLabel}>Name: {SkinNames[selectedSkin]}</Text>
               {!purchasedSkins.includes(selectedSkin) && (
-                <Text style={styles.Label}>Price: {SkinPrices[selectedSkin]} Coins</Text>
+                <Text style={styles.shopLabel}>Price: {SkinPrices[selectedSkin]} Coins</Text>
               )}
             </>
           )}
          {/*
-       <TouchableOpacity style={[styles.button, styles.TLButton]} onPress={() => alert('Try Your Luck nappi toimii')}>
+       <TouchableOpacity style={[styles.button, styles.BButton]} onPress={() => alert('Try Your Luck nappi toimii')}>
          <Text style={styles.buttonTitle}>Try Your Luck 20 Coins</Text>
        </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.button, styles.RAdsButton]} onPress={() => alert('Remove Ads nappi toimii')}>
+        <TouchableOpacity style={[styles.button, styles.BButton]} onPress={() => alert('Remove Ads nappi toimii')}>
          <Text style={styles.buttonTitle}>Remove Ads 3€</Text>
         </TouchableOpacity>
 
-       <TouchableOpacity style={[styles.button, styles.WAdButton]} onPress={() => alert('Watch Ad nappi toimii')}>
+       <TouchableOpacity style={[styles.button, styles.BButton]} onPress={() => alert('Watch Ad nappi toimii')}>
           <Text style={styles.buttonTitle}>Watch Ad for Coin</Text>
        </TouchableOpacity>
       */}

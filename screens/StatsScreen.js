@@ -49,7 +49,7 @@ const StatsScreen = ({ navigation }) => {
     return (
         <ImageBackground
             source={backgroundImage}
-            style={styles.backgroundStats}
+            style={styles.background}
         >
            <GameEngine
               ref={gameEngine}
@@ -62,16 +62,16 @@ const StatsScreen = ({ navigation }) => {
             </GameEngine>
             <View style={styles.containerStats}>
                 <Text style={styles.title}>All-Time Stats</Text>
-                <Text style={styles.statsText}>Total Points: {stats.totalPoints}</Text>
-                <Text style={styles.statsText}>Total Coins: {stats.totalCoins}</Text>
-                <Text style={styles.statsText}>Games Played: {stats.gamesPlayed}</Text>
-                <Text style={styles.statsText}>Total Play Time: {formatPlayTime(stats.totalPlayTime)}</Text>
+                <Text style={styles.text}>Total Points: {stats.totalPoints}</Text>
+                <Text style={styles.text}>Total Coins: {stats.totalCoins}</Text>
+                <Text style={styles.text}>Games Played: {stats.gamesPlayed}</Text>
+                <Text style={styles.text}>Total Play Time: {formatPlayTime(stats.totalPlayTime)}</Text>
 
                 <TouchableOpacity
-                    style={styles.buttonStats}
+                    style={[styles.button, styles.returnButton]}
                     onPress={() => navigation.goBack()}
                 >
-                    <Text style={styles.buttonTextStats}>Return</Text>
+                    <Text style={styles.buttonTitle}>Return</Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
