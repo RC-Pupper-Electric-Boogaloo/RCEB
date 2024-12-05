@@ -181,18 +181,32 @@ const DarkTheme = (isDarkMode) => {
 
     //SKINIT
     skinsContainer: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      alignSelf: 'center', 
+      flexDirection: 'row', 
+      flexWrap: 'wrap', 
+      justifyContent: 'center', 
       alignItems: 'center',
-      padding: 40,
-      justifyContent: 'center',
-
+      paddingHorizontal: 10, 
+      paddingVertical: 20, 
+      backgroundColor: containerBackgroundColor, 
+      borderRadius: 10, 
+      marginHorizontal: windowWidth * 0.05,
+    },
+    skinsTextContainer: {
+      alignSelf: 'center',
+      flexDirection: 'column', // Käytä pystysuuntaa
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      width: '100%',
+      backgroundColor: isDarkMode ? '#1e1e1e' : '#FFF9F3',
+      borderRadius: 10,
+      marginHorizontal: windowWidth * 0.05,
     },
     skinBox: {
       width: windowWidth / 6,
       height: windowWidth / 6,
       margin: 2,
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
       borderRadius: 10,
       overflow: 'hidden',
     },
@@ -208,7 +222,10 @@ const DarkTheme = (isDarkMode) => {
       borderWidth: 3,
       borderColor: 'gold',
     },
-
+    signImage: {
+      width: windowWidth / 4,
+      height: windowWidth / 4,
+    },
     //Mainmenu
     containerMainMenu: { // on myös optionScreenissä
       flex: 1,
