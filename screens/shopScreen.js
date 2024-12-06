@@ -181,7 +181,7 @@ const ShopScreen = ({ navigation }) => {
                     <Text style={styles.skinName}>{SkinNames[index]}</Text>
                     <Text style={styles.skinPrice}>
                     {isPurchased ? (
-                      isActive ? 'Chosen' : 'Purchased'
+                      isActive ? 'Chosen' : 'Adopted'
                     ) : (
                     <>
                       {`${SkinPrices[index]} `}
