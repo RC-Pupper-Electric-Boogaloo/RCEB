@@ -37,7 +37,7 @@ const ShopScreen = ({ navigation }) => {
     'Saint Bernard', 'Professor Poodle', 'Business Borzoi',
     'Maurice "PugLife" Pupper', 'Golden Puppy', 'Timekeeper Dachshund',
     'Pirate Corgi', 'Bonus Pupper', 'Sergeant Woofer', 'Merchant Beagle',
-    'Power Puppy Pampai', 'Win Whippet', 'Precious', 'Crash Buldog',  
+    'Power Puppy Pampai', 'Win Whippet', 'Precious', 'Crash Buldog',
     'OG RC Pupper', 'Random'
   ]
   const SkinPrices = [0, 50, 100, 250, 500, 1000, 2500, 5000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -158,11 +158,21 @@ const ShopScreen = ({ navigation }) => {
         <StatusBar style="auto" hidden={true} />
       </GameEngine>
       <View style={styles.container}>
-        <Text style={[styles.pointsText, styles, { color: '#FFFDFA', marginBottom: 16, backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: 10, padding: 5, }]}>{coinCount > 9999 ? 9999 : coinCount} <Image source={require('../assets/Coin.png')} style={styles.coinImage} /></Text> 
         <View style={styles.colorContainer}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.screenHeader}><Image source={require('../assets/sign.png')} style={styles.signImage} /></Text>
+          <View style={styles.shopHeaderContainer}>
+            <View style={styles.shopHeader}></View>
+            <Text style={styles.shopHeader}>
+              <Image source={require('../assets/sign.png')} style={styles.signImage} />
+            </Text>
+            <View style={styles.shopHeader}>
+              <View style={styles.coinCountContainer}>
+                <Text style={styles.coinsTextShop}>
+                  {coinCount > 9999 ? 9999 : coinCount}
+                </Text>
+                <Image source={require('../assets/Coin.png')} style={styles.coinImage} />
+              </View>
             </View>
+          </View>
           <ScrollView contentContainerStyle={styles.skinsContainer}>
             {Skins.map((skin, index) => {
               if (index >= 8 && !purchasedSkins.includes(index)) {
@@ -170,7 +180,7 @@ const ShopScreen = ({ navigation }) => {
               }
               const isPurchased = purchasedSkins.includes(index)
               const isSelected = selectedSkin === index
-              const isActive = activeSkin === index 
+              const isActive = activeSkin === index
 
               return (
                 <TouchableOpacity
@@ -178,21 +188,21 @@ const ShopScreen = ({ navigation }) => {
                   style={[
                     styles.skinBox,
                     isSelected && styles.selectedSkinBox,
-                    isActive && styles.activeSkinBox, 
+                    isActive && styles.activeSkinBox,
                     isPurchased && styles.purchased,
                   ]}
                   onPress={() => selectSkin(index)}
                 >
-                    <Image source={skin} style={styles.skinImage} />
-                    <Text style={styles.skinName}>{SkinNames[index]}</Text>
-                    <Text style={styles.skinPrice}>
+                  <Image source={skin} style={styles.skinImage} />
+                  <Text style={styles.skinName}>{SkinNames[index]}</Text>
+                  <Text style={styles.skinPrice}>
                     {isPurchased ? (
                       isActive ? 'Chosen' : 'Adopted'
                     ) : (
-                    <>
-                      {`${SkinPrices[index]} `}
-                      <Image source={require('../assets/Coin.png')} style={styles.coinImageSmall} />
-                    </>
+                      <>
+                        {`${SkinPrices[index]} `}
+                        <Image source={require('../assets/Coin.png')} style={styles.coinImageSmall} />
+                      </>
                     )}
                   </Text>
                 </TouchableOpacity>
@@ -200,27 +210,27 @@ const ShopScreen = ({ navigation }) => {
             })}
           </ScrollView>
           {selectedSkin === null ? (
-          <View style={styles.buyButtonContainer}>
-            <TouchableOpacity 
-              style={[styles.buyButton, { opacity: selectedSkin === null || purchasedSkins.includes(selectedSkin) ? 0.5 : 1 }]}
-              onPress={handlePurchase} 
-              disabled={selectedSkin === null || purchasedSkins.includes(selectedSkin)}
-            >
-              <Text style={styles.buttonTitle}>BUY</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={styles.buyButtonContainer}>
+              <TouchableOpacity
+                style={[styles.buyButton, { opacity: selectedSkin === null || purchasedSkins.includes(selectedSkin) ? 0.5 : 1 }]}
+                onPress={handlePurchase}
+                disabled={selectedSkin === null || purchasedSkins.includes(selectedSkin)}
+              >
+                <Text style={styles.buttonTitle}>BUY</Text>
+              </TouchableOpacity>
+            </View>
           ) : purchasedSkins.includes(selectedSkin) ? (
-          <View style={styles.buyButtonContainer}>
-            <TouchableOpacity style={[styles.buyButton, { opacity: activeSkin === selectedSkin ? 0.5 : 1 }]} onPress={activateSkin} disabled={activeSkin === selectedSkin}>
-              <Text style={styles.buttonTitle}>USE</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={styles.buyButtonContainer}>
+              <TouchableOpacity style={[styles.buyButton, { opacity: activeSkin === selectedSkin ? 0.5 : 1 }]} onPress={activateSkin} disabled={activeSkin === selectedSkin}>
+                <Text style={styles.buttonTitle}>USE</Text>
+              </TouchableOpacity>
+            </View>
           ) : (
-          <View style={styles.buyButtonContainer}>
-            <TouchableOpacity style={styles.buyButton} onPress={handlePurchase}>
-              <Text style={styles.buttonTitle}>BUY</Text>
-            </TouchableOpacity>
-          </View>
+            <View style={styles.buyButtonContainer}>
+              <TouchableOpacity style={styles.buyButton} onPress={handlePurchase}>
+                <Text style={styles.buttonTitle}>BUY</Text>
+              </TouchableOpacity>
+            </View>
           )}
           {/*
           <View style={styles.shopButtonContainer}>
