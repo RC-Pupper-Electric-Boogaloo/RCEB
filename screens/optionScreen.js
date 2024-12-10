@@ -124,6 +124,7 @@ const OptionScreen = ({ navigation }) => {
       await AsyncStorage.removeItem('coinCount')
       await AsyncStorage.removeItem('ClassicOn')
       await AsyncStorage.removeItem('FastmodeOn')
+      await AsyncStorage.removeItem('DaysPlayed')
       await AsyncStorage.setItem('activeSkin', JSON.stringify(0))
       setIsDarkMode(false)
       setIsSfxOn(false)
