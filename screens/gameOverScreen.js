@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useTheme } from '../components/Theme'
 import DarkTheme from '../styles/theme'
 import { MusicContext } from '../contexts/MusicContext'
+//import { AdMobBanner } from 'expo-ads-admob'
 
 const GameOverScreen = ({ currentPoints, boneCount, coinCount, chocoCount, onRestart, onShowHighscores, navigation }) => {
     const { isDarkMode } = useTheme()
@@ -26,28 +27,28 @@ const GameOverScreen = ({ currentPoints, boneCount, coinCount, chocoCount, onRes
         const initialize = async () => {
             const classicOnSetting = await AsyncStorage.getItem('ClassicOn')
             setIsClassicMode(classicOnSetting === 'true')
-    
+
             const key = classicOnSetting === 'true' ? 'classicHIGHSCORES' : 'HIGHSCORES'
             const savedScores = await AsyncStorage.getItem(key)
             const scoresArray = savedScores ? JSON.parse(savedScores) : []
-    
+
             const isTopScore = scoresArray.length < 10 || currentPoints > Math.min(...scoresArray.map(s => s.points))
-    
+
             if (isTopScore) {
                 setIsHighScore(true)
             }
         }
-    
+
         initialize()
     }, [currentPoints])
-    
+
     useEffect(() => {
         const checkHighScore = async () => {
             const key = isClassicMode ? 'classicHIGHSCORES' : 'HIGHSCORES'
             const savedScores = await AsyncStorage.getItem(key)
             const scoresArray = savedScores ? JSON.parse(savedScores) : []
             const isTopScore = scoresArray.length < 10 || currentPoints > Math.min(...scoresArray.map(s => s.points))
-        
+
             if (isTopScore) {
                 setIsHighScore(true)
             }
@@ -133,6 +134,13 @@ const GameOverScreen = ({ currentPoints, boneCount, coinCount, chocoCount, onRes
                         </TouchableOpacity>
                     </>
                 )}
+                {/* <AdMobBanner
+                    bannerSize="fullBanner"
+                    adUnitID="ca-app-pub-3940256099942544/9214589741" // Vaihda tämä oikeaan AdMob ID:hen
+                    servePersonalizedAds={true} // Aseta false, jos haluat käyttää ei-henkilökohtaisia mainoksia
+                    onDidFailToReceiveAdWithError={(error) => console.log("AdMob error:", error)}
+                    style={styles.adBanner}
+                /> */}
             </View>
         </ImageBackground >
     )

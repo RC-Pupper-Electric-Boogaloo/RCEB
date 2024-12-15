@@ -446,6 +446,12 @@ const DarkTheme = (isDarkMode) => {
       fontWeight: 'bold',
       textAlign: 'center',
     },
+    //Mainokset
+    adBanner: {
+      position: 'absolute',
+      bottom: 0,
+      width: '100%',
+    },
   }
 }
 
