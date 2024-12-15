@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ThemeProvider } from './components/Theme'
@@ -15,10 +15,45 @@ import StatsScreen from './screens/StatsScreen'
 import GuideScreen from './screens/guideScreen'
 import AchievementScreen from './screens/achievementScreen'
 import CreditsScreen from './screens/creditsScreen'
+import { InterstitialAd, TestIds, AdEventType } from 'react-native-google-mobile-ads'
 
 const Stack = createNativeStackNavigator()
 
+const adUnitId = TestIds.INTERSTITIAL
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+    requestNonPersonalizedAdsOnly: true,
+  })
+
 export default function App() {
+
+    useEffect(() => {
+        // Lataa mainos sovelluksen käynnistyessä
+        const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+          console.log('Mainos ladattu!')
+        })
+    
+        const unsubscribeClosed = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+            setAdLoaded(false)
+            interstitial.load() // Lataa seuraava mainos
+          })
+
+// Lataa ensimmäinen mainos
+interstitial.load()
+
+return () => {
+    unsubscribe()
+  unsubscribeClosed()
+}
+}, [])
+
+const showAd = () => {
+if (adLoaded) {
+  interstitial.show();
+} else {
+  console.log('Mainos ei ladattu.')
+}
+}
     return (
         <ThemeProvider>
             <MusicProvider>
@@ -33,6 +68,11 @@ export default function App() {
                             name='MainMenu'
                             component={MainMenuScreen}
                             options={{ headerShown: false }}
+                            listeners={{
+                                focus: () => {
+                                    showAd() // Show ad when MainMenu is focused
+                                },
+                            }}
                         />
                         <Stack.Screen
                             name='Game'

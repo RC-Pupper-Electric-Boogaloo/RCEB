@@ -17,6 +17,8 @@
       "newArchEnabled": true
     },
     "android": {
+      "android_app_id": "ca-app-pub-3940256099942544/3347511713",
+       "package": "com.example.RCEB",
       "adaptiveIcon": {
         "newArchEnabled": true,
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -25,6 +27,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+"plugins": [
+  [
+    "react-native-google-mobile-ads",
+    {
+      "android_app_id": "ca-app-pub-3940256099942544/3347511713"
     }
-  }
+  ]
+]
+}
 }
