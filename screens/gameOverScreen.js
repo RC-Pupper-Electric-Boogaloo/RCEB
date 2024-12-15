@@ -137,7 +137,7 @@ const GameOverScreen = ({ currentPoints, boneCount, coinCount, chocoCount, onRes
                 {/* <AdMobBanner
                     bannerSize="fullBanner"
                     adUnitID="ca-app-pub-3940256099942544/9214589741" // Vaihda tämä oikeaan AdMob ID:hen
-                    servePersonalizedAds={true} // Aseta false, jos haluat käyttää ei-henkilökohtaisia mainoksia
+                    servePersonalizedAds={true}
                     onDidFailToReceiveAdWithError={(error) => console.log("AdMob error:", error)}
                     style={styles.adBanner}
                 /> */}
